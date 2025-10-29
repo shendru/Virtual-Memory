@@ -1,25 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://blkfpbgl22g61"]
+[gd_scene load_steps=5 format=3 uid="uid://blkfpbgl22g61"]
 
 [ext_resource type="PackedScene" uid="uid://bgaoo7a51ss2n" path="res://Scenes/VirtualMemory.tscn" id="1_eyshn"]
+[ext_resource type="Script" uid="uid://r2qul4a362ur" path="res://Scripts/camera2d.gd" id="1_qcdiq"]
 [ext_resource type="PackedScene" uid="uid://cpd28d148rjit" path="res://Scenes/PhysicalMemory.tscn" id="2_nsnmm"]
+[ext_resource type="PackedScene" uid="uid://bswvqv1p8usib" path="res://Scenes/DemandPaging.tscn" id="4_brcob"]
 
 [node name="Simulation" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(648, 358)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-
-[node name="ColorRect" type="ColorRect" parent="Camera2D"]
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+script = ExtResource("1_qcdiq")
 
 [node name="VirtualMemory" parent="." instance=ExtResource("1_eyshn")]
-position = Vector2(225, 292)
+position = Vector2(1616, 56)
 
 [node name="PhysicalMemory" parent="." instance=ExtResource("2_nsnmm")]
-position = Vector2(583, 345)
+position = Vector2(1974, 109)
 
 [node name="VirtualMemory2" parent="." instance=ExtResource("1_eyshn")]
-position = Vector2(949, 295)
+position = Vector2(2340, 59)
+
+[node name="DemandPaging" parent="." instance=ExtResource("4_brcob")]
+position = Vector2(75, 38)

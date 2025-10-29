@@ -1,0 +1,134 @@
+[gd_scene load_steps=4 format=3 uid="uid://bswvqv1p8usib"]
+
+[ext_resource type="Script" uid="uid://cp7fyxd6md4hh" path="res://Scripts/demand_paging.gd" id="1_qpnld"]
+[ext_resource type="PackedScene" uid="uid://bgaoo7a51ss2n" path="res://Scenes/VirtualMemory.tscn" id="2_fir46"]
+[ext_resource type="PackedScene" uid="uid://cpd28d148rjit" path="res://Scenes/PhysicalMemory.tscn" id="3_pbk6x"]
+
+[node name="DemandPaging" type="Node2D"]
+script = ExtResource("1_qpnld")
+
+[node name="CPU" type="Node2D" parent="."]
+position = Vector2(508, 234)
+
+[node name="RequestQueueText" type="Label" parent="CPU"]
+offset_left = 128.0
+offset_top = -212.0
+offset_right = 247.0
+offset_bottom = -189.0
+text = "Request Queue"
+
+[node name="RequestQueue" type="HBoxContainer" parent="CPU"]
+offset_left = 130.0
+offset_top = -185.0
+offset_right = 346.0
+offset_bottom = -145.0
+
+[node name="Label" type="Label" parent="CPU/RequestQueue"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "N/A"
+
+[node name="Label2" type="Label" parent="CPU/RequestQueue"]
+layout_mode = 2
+text = "N/A"
+
+[node name="Label3" type="Label" parent="CPU/RequestQueue"]
+layout_mode = 2
+text = "N/A"
+
+[node name="Label4" type="Label" parent="CPU/RequestQueue"]
+layout_mode = 2
+text = "N/A"
+
+[node name="CPU" type="ColorRect" parent="CPU"]
+offset_left = -26.0
+offset_top = -191.0
+offset_right = 124.0
+offset_bottom = -41.0
+color = Color(0.86036915, 0.8603692, 0.8603692, 1)
+
+[node name="CPU" type="ColorRect" parent="CPU/CPU"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 6.0
+offset_right = 141.0
+offset_bottom = 46.0
+
+[node name="Label" type="Label" parent="CPU/CPU/CPU"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "CPU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TLB" type="ColorRect" parent="CPU/CPU"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 100.0
+offset_right = 50.0
+offset_bottom = 140.0
+
+[node name="Label" type="Label" parent="CPU/CPU/TLB"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TLB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MMU" type="ColorRect" parent="CPU/CPU"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 99.0
+offset_right = 141.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="CPU/CPU/MMU"]
+layout_mode = 0
+offset_right = 42.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "MMU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VirtualMemory" parent="." instance=ExtResource("2_fir46")]
+position = Vector2(333, 433)
+
+[node name="PhysicalMemory" parent="." instance=ExtResource("3_pbk6x")]
+position = Vector2(796, 480)
+
+[node name="SimulationTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="PageFaultTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Connection" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(55, 176)
+points = PackedVector2Array(523, -18, 484, -18)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+begin_cap_mode = 1
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="."]
+position = Vector2(88, 126)
+points = PackedVector2Array(516, 13, 516, -33)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+begin_cap_mode = 1
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(55, 185)
+points = PackedVector2Array(523, -18, 509.26764, -18, 484, -18)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+begin_cap_mode = 1
+end_cap_mode = 2

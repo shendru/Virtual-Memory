@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk1iaotmatmfm"]
+
+[ext_resource type="PackedScene" uid="uid://bgaoo7a51ss2n" path="res://Scenes/VirtualMemory.tscn" id="1_5b34b"]
+[ext_resource type="PackedScene" uid="uid://cpd28d148rjit" path="res://Scenes/PhysicalMemory.tscn" id="2_283ov"]
+
+[node name="VirtualMemoryBasics" type="Node2D"]
+
+[node name="VirtualMemory" parent="." instance=ExtResource("1_5b34b")]
+position = Vector2(305, 343)
+
+[node name="PhysicalMemory" parent="." instance=ExtResource("2_283ov")]
+position = Vector2(799, 388)

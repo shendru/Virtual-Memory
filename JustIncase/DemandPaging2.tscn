@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://duaqdsjqsxs5w"]
+
+[ext_resource type="Script" uid="uid://cp7fyxd6md4hh" path="res://Scripts/demand_paging.gd" id="1_1kpmo"]
+[ext_resource type="PackedScene" uid="uid://bgaoo7a51ss2n" path="res://Scenes/VirtualMemory.tscn" id="2_bplsq"]
+[ext_resource type="PackedScene" uid="uid://cpd28d148rjit" path="res://Scenes/PhysicalMemory.tscn" id="3_1qh76"]
+
+[node name="DemandPaging" type="Node2D"]
+script = ExtResource("1_1kpmo")
+
+[node name="CPU" type="Node2D" parent="."]
+position = Vector2(442, 38)
+
+[node name="RequestQueueText" type="Label" parent="CPU"]
+offset_left = 44.0
+offset_top = -27.0
+offset_right = 163.0
+offset_bottom = -4.0
+text = "Request Queue"
+
+[node name="CPU" type="ColorRect" parent="CPU"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CPU/CPU"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "CPU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RequestQueue" type="HBoxContainer" parent="CPU"]
+offset_left = 46.0
+offset_right = 262.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CPU/RequestQueue"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "N/A"
+
+[node name="Label2" type="Label" parent="CPU/RequestQueue"]
+layout_mode = 2
+text = "N/A"
+
+[node name="Label3" type="Label" parent="CPU/RequestQueue"]
+layout_mode = 2
+text = "N/A"
+
+[node name="Label4" type="Label" parent="CPU/RequestQueue"]
+layout_mode = 2
+text = "N/A"
+
+[node name="VirtualMemory" parent="." instance=ExtResource("2_bplsq")]
+position = Vector2(293, 374)
+
+[node name="PhysicalMemory" parent="." instance=ExtResource("3_1qh76")]
+position = Vector2(764, 425)
+
+[node name="SimulationTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="PageFaultTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Connection" type="Node2D" parent="."]
