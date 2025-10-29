@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://blkfpbgl22g61"]
+
+[ext_resource type="PackedScene" uid="uid://bgaoo7a51ss2n" path="res://Scenes/VirtualMemory.tscn" id="1_eyshn"]
+[ext_resource type="PackedScene" uid="uid://cpd28d148rjit" path="res://Scenes/PhysicalMemory.tscn" id="2_nsnmm"]
+
+[node name="Simulation" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+
+[node name="VirtualMemory" parent="." instance=ExtResource("1_eyshn")]
+position = Vector2(225, 292)
+
+[node name="PhysicalMemory" parent="." instance=ExtResource("2_nsnmm")]
+position = Vector2(583, 345)
+
+[node name="VirtualMemory2" parent="." instance=ExtResource("1_eyshn")]
+position = Vector2(949, 295)
